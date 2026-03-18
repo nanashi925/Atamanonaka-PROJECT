@@ -375,6 +375,7 @@ body.is-transitioning .intro-overlay__wash {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 8px 26px rgba(14, 7, 20, 0.2);
+  margin-bottom: 14px;
 }
 
 .character-intro__chart {
@@ -460,6 +461,9 @@ body.is-transitioning .intro-overlay__wash {
 
 .character-card__copy {
   min-width: 0;
+  min-height: 248px;
+  display: flex;
+  flex-direction: column;
 }
 
 .character-card__name,
@@ -487,6 +491,11 @@ body.is-transitioning .intro-overlay__wash {
   color: #f3a0df;
   font-size: clamp(16px, 2.2vw, 24px);
   line-height: 1.7;
+  min-height: 5.2em;
+}
+
+.character-intro__controls {
+  margin-top: 12px;
 }
 
 .character-intro__controls {
@@ -670,6 +679,10 @@ body.is-transitioning .intro-overlay__wash {
     border-width: 4px;
   }
 
+  .character-intro__chart-shell {
+    margin-bottom: 12px;
+  }
+
   .character-card__name {
     font-size: 22px;
   }
@@ -685,10 +698,12 @@ body.is-transitioning .intro-overlay__wash {
     margin-top: 10px;
     font-size: 15px;
     line-height: 1.65;
+    min-height: 6.6em;
   }
 
   .character-intro__controls {
     gap: 8px;
+    margin-top: 10px;
   }
 
   .carousel-button {
