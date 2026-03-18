@@ -1,4 +1,6 @@
 const characters = [...document.querySelectorAll('.character')];
+const aboutToggle = document.querySelector('[data-about-toggle]');
+const aboutPanel = document.getElementById('project-about');
 
 characters.forEach((character) => {
   character.addEventListener('click', () => {
@@ -15,3 +17,12 @@ characters.forEach((character) => {
     }
   });
 });
+
+if (aboutToggle && aboutPanel) {
+  aboutToggle.addEventListener('click', () => {
+    const isExpanded = aboutToggle.getAttribute('aria-expanded') === 'true';
+
+    aboutToggle.setAttribute('aria-expanded', String(!isExpanded));
+    aboutPanel.hidden = isExpanded;
+  });
+}

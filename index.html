@@ -3,11 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>お部屋の会話</title>
+    <title>あたまのなかぷろじぇくと</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main>
+    <main class="page-shell">
+      <header class="site-header">
+        <h1 class="site-title">あたまのなか<br />ぷろじぇくと</h1>
+        <button
+          class="about-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="project-about"
+          data-about-toggle
+        >
+          あたまのなかぷろじぇくととは
+        </button>
+        <div class="about-panel" id="project-about" hidden>
+          <p>
+            あたまのなかぷろじぇくとの説明文は、あとからここへまとめて入れられます。
+          </p>
+        </div>
+      </header>
+
       <section class="hero-room" aria-label="お部屋の会話エリア">
         <div class="room-stage">
           <img
