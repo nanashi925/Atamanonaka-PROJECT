@@ -215,23 +215,16 @@ const characterProfiles = [
 let activeCharacterIndex = 0;
 let isCharacterIntroOpen = false;
 
-const renderCharacterDots = () => {
+const initCharacterDots = () => {
   if (!characterDots) {
     return;
   }
-
-  characterDots.replaceChildren();
 
   characterProfiles.forEach((profile, index) => {
     const dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'carousel-dot';
     dot.setAttribute('aria-label', `${profile.name} の紹介を表示`);
-    dot.setAttribute('aria-pressed', String(index === activeCharacterIndex));
-
-    if (index === activeCharacterIndex) {
-      dot.classList.add('is-active');
-    }
 
     dot.addEventListener('click', () => {
       activeCharacterIndex = index;
@@ -239,6 +232,18 @@ const renderCharacterDots = () => {
     });
 
     characterDots.append(dot);
+  });
+};
+
+const updateCharacterDots = () => {
+  if (!characterDots) {
+    return;
+  }
+
+  const dots = characterDots.querySelectorAll('.carousel-dot');
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('is-active', index === activeCharacterIndex);
+    dot.setAttribute('aria-pressed', String(index === activeCharacterIndex));
   });
 };
 
@@ -255,7 +260,7 @@ const renderCharacterCard = () => {
   characterName.textContent = profile.name;
   characterText.textContent = profile.text;
   characterQuote.textContent = profile.quote;
-  renderCharacterDots();
+  updateCharacterDots();
 };
 
 const openCharacterIntro = () => {
@@ -306,4 +311,5 @@ if (characterBack) {
   characterBack.addEventListener('click', closeCharacterIntro);
 }
 
+initCharacterDots();
 renderCharacterCard();
